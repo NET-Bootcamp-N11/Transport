@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Security;
 using System.Text.Json;
-using Permission_Domen.Enums;
 
 namespace Permission_APi.AttributeS
 {

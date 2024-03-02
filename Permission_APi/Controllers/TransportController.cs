@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
 using Permission_APi.AttributeS;
-using Permission_Application.Dto_s;
 using Permission_Application.Services.Teacher_S;
-using Permission_Domen.Entityes;
 using Permission_Domen.Enums;
-using System.Linq.Expressions;
 using VehicleManagement_Application.Dto_s;
 using VehicleManagementAPI.Extentions;
 
