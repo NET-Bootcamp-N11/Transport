@@ -22,7 +22,6 @@ namespace Permission_Application.Services.Teacher_S
 
         public async Task<Transport> CreateAsync(TransportDto transportDto, string fieldInfo)
         {
-
             var newtrans = transportDto.Adapt<Transport>();
             newtrans.ImageUrl = fieldInfo;
             newtrans.CreatedAt = DateTime.UtcNow;
