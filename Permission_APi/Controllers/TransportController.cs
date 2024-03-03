@@ -34,18 +34,23 @@ namespace Permission_APi.Controllers
 
         [FilterAttribute(Permissitions.CreateTransport)]
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]TransportDto transportDto, IFormFile Imageurl)
+        public async Task<IActionResult> Create([FromForm] TransportDto transportDto, IFormFile Imageurl)
         {
             var Extention = new MetodExtention(_webHostEnvironment);
-
-            var picturepath =await  Extention.AddPictureAndGetPath(Imageurl);
+            var picturepath = await Extention.AddPictureAndGetPath(Imageurl);
             var result = await _serviceTransport.CreateAsync(transportDto, picturepath);
             return Ok(result);
 
         }
         [FilterAttribute(Permissitions.UpdateTransport)]
         [HttpPut]
-        public async Task<IActionResult> Update(int id, [FromForm]TransportDto transportDto) => Ok(await _serviceTransport.UpdateAsync(id,transportDto));
+        public async Task<IActionResult> Update(int id, [FromForm] TransportDto transportDto, IFormFile Imageurl)
+        {
+            var Extention = new MetodExtention(_webHostEnvironment);
+            var picturepath = await Extention.AddPictureAndGetPath(Imageurl);
+            var result = await _serviceTransport.UpdateAsync(id, transportDto, picturepath);
+            return Ok(result);
+        }
 
         [FilterAttribute(Permissitions.DeleteTransport)]
         [HttpDelete]

@@ -1,12 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Permission_Application.Abstractions.Generic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Permission_Infrastructure.Generic
 {
@@ -21,33 +14,70 @@ namespace Permission_Infrastructure.Generic
         }
         public async Task<T> CreateAsync(T entity)
         {
+
+            try
+            {
                 var entry = await dbSet.AddAsync(entity);
                 await _appDbContext.SaveChangesAsync();
                 return entry.Entity;
+            }
+            catch(Exception  ex)
+            {
+                throw null;
+            }
+
         }
         public async Task<bool> DeleteAsync(int id)
         {
-                var entity = await dbSet.FirstOrDefaultAsync( x => x.Equals(id));
+            try
+            {
+                var entity = await dbSet.FirstOrDefaultAsync(x => x.Equals(id));
                 dbSet.Remove(entity);
                 await _appDbContext.SaveChangesAsync();
                 return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await dbSet.ToListAsync();
+            try
+            {
+                return await dbSet.ToListAsync();
+            }
+            catch
+            {
+                throw null;
+            }
         }
 
         public async Task<T> GetAsync(int id)
         {
-            var get = await dbSet.FindAsync(id);
+            try
+            {
+                var get = await dbSet.FindAsync(id);
                 return get;
+            }
+            catch
+            {
+                throw null;
+            }
         }
         public async Task<T> UpdateAsync(T entity)
         {
+            try
+            {
                 var entry = dbSet.Update(entity);
                 await _appDbContext.SaveChangesAsync();
                 return entry.Entity;
+            }
+            catch
+            {
+                throw null;
+            }
         }
     }
 

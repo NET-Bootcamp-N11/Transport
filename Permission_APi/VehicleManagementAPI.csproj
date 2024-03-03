@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Permission_Application\VehicleManagement_Application.csproj" />
     <ProjectReference Include="..\Permission_Infrastructure\VehicleManagement_Infrastructure.csproj" />
+    <ProjectReference Include="..\Permissition_Domen\VehicleManagement_Domen.csproj" />
   </ItemGroup>
 
   <ItemGroup>

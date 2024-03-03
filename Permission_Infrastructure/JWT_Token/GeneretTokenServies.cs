@@ -1,15 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Permission_Domen.Entityes;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Permission_Infrastructure.JWT_Token
 {
@@ -25,15 +21,15 @@ namespace Permission_Infrastructure.JWT_Token
 
             if (user.ERole.ToString() == "Admin")
             {
-                permissions = new List<int>() { 1, 2, 3, 4, 5};
+                permissions = new List<int>() { 1, 2, 3, 4, 5 };
             }
             else if (user.ERole.ToString() == "Manangment")
             {
-                permissions = new List<int>() {1,2,3};
+                permissions = new List<int>() { 1, 2, 3 };
             }
             else if (user.ERole.ToString() == "User")
             {
-                permissions = new List<int>() { 1};
+                permissions = new List<int>() { 1 };
             }
 
             var jsonContent = JsonSerializer.Serialize(permissions);
@@ -67,15 +63,15 @@ namespace Permission_Infrastructure.JWT_Token
 
             if (additionalClaims?.Any() == true)
                 claims.AddRange(additionalClaims);
-            
-                var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:Issuer"],
-                audience: _configuration["JWT:Audience"],
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(exDate),
-                signingCredentials: credentials);
 
-                return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = new JwtSecurityToken(
+            issuer: _configuration["JWT:Issuer"],
+            audience: _configuration["JWT:Audience"],
+            claims: claims,
+            expires: DateTime.UtcNow.AddMinutes(exDate),
+            signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }

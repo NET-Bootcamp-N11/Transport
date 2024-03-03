@@ -3,11 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Permission_Application.Abstractions.Repositories;
 using Permission_Application.Dto_s;
 using Permission_Infrastructure.JWT_Token;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Permission_Infrastructure.Repositories
 {
@@ -25,7 +20,12 @@ namespace Permission_Infrastructure.Repositories
         {
 
             var newUser = await _dbContext.
-                Users.FirstOrDefaultAsync(x=> x.Password == user.Password && x.Email == user.Email);
+                Users.FirstOrDefaultAsync(x => x.Password == user.Password && x.Email == user.Email);
+
+            if(newUser == null) 
+            {
+                return "Not Faund User";
+            }
 
             var jwtToken = new GeneretTokenServies(_configuration);
             var resust = jwtToken.GenerateToken(newUser);

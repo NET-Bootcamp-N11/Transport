@@ -1,15 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore;
-using Permission_Application.Abstractions.Repositories;
+﻿using Permission_Application.Abstractions.Repositories;
 using Permission_Application.Dto_s;
 using Permission_Domen.Entityes;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Permission_Infrastructure.Repositories
 {

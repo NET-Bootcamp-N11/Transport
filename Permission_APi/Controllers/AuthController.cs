@@ -19,8 +19,8 @@ namespace Permission_APi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register([FromForm]RegisterDTO register) => Ok(await _register.Registration(register));
+        public async Task<IActionResult> Register([FromForm] RegisterDTO register) => Ok(await _register.Registration(register));
         [HttpPost]
-        public async Task<IActionResult> Login([FromForm]LoginDTO loginDTO) => Ok(await _login.Loogin(loginDTO));
+        public async Task<IActionResult> Login([FromForm] LoginDTO loginDTO) => Ok(await _login.Loogin(loginDTO));
     }
 }

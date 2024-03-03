@@ -1,15 +1,6 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Http;
 using Permission_Application.Abstractions.Repositories;
-using Permission_Application.Dto_s;
-using Permission_Domen.Entityes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.Serialization.Formatters;
-using System.Text;
-using System.Threading.Tasks;
 using VehicleManagement_Application.Dto_s;
 using VehicleManagement_Domen.Entityes;
 
@@ -41,23 +32,28 @@ namespace Permission_Application.Services.Teacher_S
 
         public async Task<Transport> GetById(int Id)
         {
-            return await _transportRepositories.GetAsync(Id);
+                var result = await _transportRepositories.GetAsync(Id);
+            return result != null ? result : null;
         }
 
-        public async Task<Transport> UpdateAsync(int id, TransportDto transportDto)
+        public async Task<Transport> UpdateAsync(int id, TransportDto transportDto, string fileinfo)
         {
             var newtrans = await _transportRepositories.GetAsync(id);
 
-            newtrans.Name = transportDto.Name;
-            newtrans.Description = transportDto.Description;
-            newtrans.Type = transportDto.Type;
-            newtrans.Number = transportDto.Number;
-            newtrans.Fuel_type = transportDto.Fuel_type;
-            newtrans.UpdatedAt = DateTime.UtcNow;
-            newtrans.Price = transportDto.Price;
+            if( newtrans != null)
+            {
+                newtrans.Name = transportDto.Name;
+                newtrans.Description = transportDto.Description;
+                newtrans.Type = transportDto.Type;
+                newtrans.Number = transportDto.Number;
+                newtrans.Fuel_type = transportDto.Fuel_type;
+                newtrans.ImageUrl = fileinfo;
+                newtrans.UpdatedAt = DateTime.UtcNow;
+                newtrans.Price = transportDto.Price;
 
-            return await _transportRepositories.UpdateAsync(newtrans);
-
+                return await _transportRepositories.UpdateAsync(newtrans);
+            }
+            return null;
         }
     }
 }

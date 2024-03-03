@@ -1,17 +1,16 @@
-﻿using Permission_Domen.Entityes;
-using Permission_Infrastructure;
+﻿using Permission_Infrastructure;
 using VehicleManagement_Domen.Entityes;
 
 namespace Permission_APi.Data
 {
-    public static class SeedDataExtentions
+    public static class SeedDataTransport
     {
         public static async Task InitiliazeDataAsync(this IServiceProvider serviceProvider)
         {
             var db = serviceProvider.GetRequiredService<AppDbContext>();
             if (!db.Transports.Any())
             {
-                List<Transport> students = [
+                List<Transport> transports = [
                      new Transport
                      {
                          Name = "Toyota Camry",
@@ -74,7 +73,7 @@ namespace Permission_APi.Data
                          Price = "$60000",
                          Year_Of_Creation = "2021"
                      }];
-                db.Transports.AddRange(students);
+                db.Transports.AddRange(transports);
                 await db.SaveChangesAsync();
             }
         }

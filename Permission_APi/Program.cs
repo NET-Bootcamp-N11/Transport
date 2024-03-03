@@ -1,15 +1,13 @@
-using Permission_Infrastructure;
-using Permission_Application;
-using Microsoft.Extensions.Configuration;
-using System.Collections;
-using Permission_Application.Abstractions.Repositories;
-using Permission_Domen.Entityes;
-using Permission_Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Permission_APi.Data;
+using Permission_Application;
+using Permission_Application.Abstractions.Repositories;
+using Permission_Infrastructure;
+using Permission_Infrastructure.Repositories;
+using System.Text;
+using VehicleManagementAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +81,7 @@ var app = builder.Build();
 
 AsyncServiceScope scope = app.Services.CreateAsyncScope();
 scope.ServiceProvider.InitiliazeDataAsync();
+scope.ServiceProvider.InitiliazaDataAsync();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

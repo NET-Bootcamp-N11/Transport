@@ -12,5 +12,10 @@ namespace Permission_Infrastructure
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Transport> Transports { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
