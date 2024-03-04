@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Permission_Infrastructure;
+using VehicleManagement_Infrastructure;
 
 #nullable disable
 
-namespace Permission_Infrastructure.Migrations
+namespace VehicleManagement_Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240303154345_initsss")]
-    partial class initsss
+    [Migration("20240304042348_inirw")]
+    partial class inirw
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

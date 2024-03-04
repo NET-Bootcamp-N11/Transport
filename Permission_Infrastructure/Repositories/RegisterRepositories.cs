@@ -1,6 +1,7 @@
 ﻿using Permission_Application.Abstractions.Repositories;
 using Permission_Application.Dto_s;
 using Permission_Domen.Entityes;
+using VehicleManagement_Infrastructure;
 
 namespace Permission_Infrastructure.Repositories
 {

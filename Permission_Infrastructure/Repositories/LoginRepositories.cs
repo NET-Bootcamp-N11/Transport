@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Permission_Application.Abstractions.Repositories;
 using Permission_Application.Dto_s;
 using Permission_Infrastructure.JWT_Token;
+using VehicleManagement_Infrastructure;
 
 namespace Permission_Infrastructure.Repositories
 {

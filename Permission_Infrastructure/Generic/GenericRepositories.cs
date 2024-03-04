@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Permission_Application.Abstractions.Generic;
+using VehicleManagement_Infrastructure;
 
 namespace Permission_Infrastructure.Generic
 {

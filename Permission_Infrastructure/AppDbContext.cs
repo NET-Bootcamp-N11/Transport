@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Permission_Domen.Entityes;
+using VehicleManagement_Application.Abstractions;
 using VehicleManagement_Domen.Entityes;
 
-namespace Permission_Infrastructure
+namespace VehicleManagement_Infrastructure
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

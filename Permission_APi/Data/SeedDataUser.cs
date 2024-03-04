@@ -1,5 +1,6 @@
 ﻿using Permission_Domen.Entityes;
 using Permission_Infrastructure;
+using VehicleManagement_Infrastructure;
 
 namespace VehicleManagementAPI.Data
 {

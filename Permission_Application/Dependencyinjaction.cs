@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using VehicleManagement_Application.Services.EmailSender;
 
 namespace Permission_Application
 {
@@ -6,6 +7,7 @@ namespace Permission_Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddScoped<IForgetEmail, ForgetEmail>();
             return services;
         }
 

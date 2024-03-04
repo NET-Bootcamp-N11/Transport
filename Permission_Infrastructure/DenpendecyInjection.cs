@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Permission_Application.Abstractions.Repositories;
 using Permission_Application.Services.Teacher_S;
+using VehicleManagement_Application.Abstractions;
+using VehicleManagement_Infrastructure;
 using VehicleManagement_Infrastructure.Repositories;
 
 namespace Permission_Infrastructure
@@ -13,7 +15,7 @@ namespace Permission_Infrastructure
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<IDbContext,AppDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
 
