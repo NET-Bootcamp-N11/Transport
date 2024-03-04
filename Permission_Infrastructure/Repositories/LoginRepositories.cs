@@ -27,10 +27,9 @@ namespace Permission_Infrastructure.Repositories
             {
                 return "Not Faund User";
             }
-
-            var jwtToken = new GeneretTokenServies(_configuration);
-            var resust = jwtToken.GenerateToken(newUser);
-            return await resust;
+                var jwtToken = new GeneretTokenServies(_configuration);
+                var resust = jwtToken.GenerateToken(newUser);
+                return await resust;
         }
     }
 }

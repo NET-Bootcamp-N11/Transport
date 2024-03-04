@@ -41,9 +41,10 @@ namespace VehicleManagement_Application.Services.EmailSender
             };
 
             var result = await _dbContext.Users.FirstOrDefaultAsync(x=> x.Email == model);
-
-            result.Password = sender.ToString();
-            mailMessage.To.Add(result.Email);
+            if(result != null)
+            {
+                mailMessage.To.Add(result.Email);
+            }
 
             using var smtpClient = new SmtpClient(emailSettings["MailServer"], int.Parse(emailSettings["MailPort"]))
             {

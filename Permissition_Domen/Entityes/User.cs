@@ -13,6 +13,7 @@ namespace Permission_Domen.Entityes
         public string Email { get; set; }
         [PasswordPropertyText]
         public string Password { get; set; }
+
         public ERole ERole { get; set; }
     }
 }

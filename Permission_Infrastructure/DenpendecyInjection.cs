@@ -22,6 +22,7 @@ namespace Permission_Infrastructure
             services.AddScoped<IServiceTransport, ServiceTransport>();
             services.AddScoped<ITransportRepositories, TransportRepositories>();
             services.AddScoped<ITransportRepositories, TransportRepositories>();
+            services.AddScoped<IUserRepositories, UserRepository>();
 
             return services;
         }
